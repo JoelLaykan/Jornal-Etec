@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Criar notícia
+    hr
+  form.form-horizontal(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='title') Título
+      .col-sm-7
+        input.form-control(type='title', name='title', id='title', placeholder='Título', autofocus, required)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='content') Conteúdo
+      .col-sm-7
+        input.form-control(type='text', name='content', id='content', placeholder='Conteúdo', required)
+    .form-group.row.justify-content-md-center.align-items-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold Gender
+      .col-sm-7
+        .form-check.form-check-inline
+          input#option-male.form-check-input(type='radio', checked=user.profile.gender==='male', name='gender', value='male', data-toggle='radio')
+          label.form-check-label(for="option-male") Male
+        .form-check.form-check-inline
+          input#option-female.form-check-input(type='radio', checked=user.profile.gender==='female', name='gender', value='female', data-toggle='radio')
+          label.form-check-label(for="option-female") Female
+        .form-check.form-check-inline
+          input#option-other.form-check-input(type='radio', checked=user.profile.gender==='other', name='gender', value='other', data-toggle='radio')
+          label.form-check-label(for="option-other") Other
+    .form-group.row.justify-content-md-center
+      .offset-sm-3.col-sm-7
+        button.btn.btn-success(type='submit')
+          i.fa.fa-user-plus
+          | Signup
